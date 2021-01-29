@@ -12,7 +12,6 @@ const API_GENRE = `https://api.themoviedb.org/3/genre/movie/list?api_key=efe03a6
 const API_TOP_RATED = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=${API_LANG}`;
 const API_POPULAR = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=${API_LANG}`
 
-
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -78,14 +77,14 @@ class App extends React.Component {
     const { data: { genres } } = await axios.get(API_GENRE); //So, have to convert to text with this API.
 
     this.setState({ movies: results, isLoading: false });
-    this.setState({ genresCategory : genres});
+    this.setState({ genresCategory: genres });
   }
-
   componentDidMount() {
     this.getMovies();
   }
   render() {
-    const { isLoading, movies, genresCategory} = this.state;
+    const { isLoading, movies, genresCategory } = this.state;
+    console.log(movies);
     return (
       <section className="container">
         {isLoading ? (
@@ -113,5 +112,4 @@ class App extends React.Component {
   }
 }
 export default App;
-
 */

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Movie.css";
 
-function genreIdToText(genre_ids, genres) {
+const genreIdToText = (genre_ids, genres) => {
     const returnArray = [];
     genre_ids.forEach(genre_id => {
         genres.forEach(genre => {
@@ -13,7 +13,7 @@ function genreIdToText(genre_ids, genres) {
     });
     return returnArray;
 }
-function Movie({ date, title, summary, poster_path, genre_ids, genres_category}) {
+const Movie = ({ date, title, summary, poster_path, genre_ids, genres_category}) =>{
     const poster = `https://image.tmdb.org/t/p/w200/${poster_path}`;
     const genre_text = genreIdToText(genre_ids, genres_category);
 
